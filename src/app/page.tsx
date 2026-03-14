@@ -23,9 +23,7 @@ export default function Home() {
           <Education />
         </SectionReveal>
 
-        <SectionReveal>
-          <Skills />
-        </SectionReveal>
+        <Skills />
 
         <SectionReveal>
           <Projects />
