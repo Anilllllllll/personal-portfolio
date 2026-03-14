@@ -10,7 +10,7 @@ const SkillItem = ({ skill }: { skill: string }) => {
 
   return (
     <div className="mx-4 my-4 group">
-      <div className="relative px-8 py-6 rounded-2xl border border-white/5 bg-white/[0.02] backdrop-blur-3xl transition-all duration-500 hover:border-red-500/30 hover:bg-white/[0.05] flex items-center gap-4 shadow-xl">
+      <div className="relative px-8 py-6 rounded-2xl border-2 border-red-500/30 bg-gradient-to-br from-red-500/10 to-red-600/5 backdrop-blur-3xl transition-all duration-500 hover:border-red-500/60 hover:from-red-500/20 hover:to-red-600/10 flex items-center gap-4 shadow-lg hover:shadow-xl hover:shadow-red-500/20">
         <div
           className="text-3xl transition-all duration-500 group-hover:scale-110 group-hover:drop-shadow-[0_0_10px_var(--icon-color)]"
           style={{ "--icon-color": color } as React.CSSProperties}
@@ -18,10 +18,10 @@ const SkillItem = ({ skill }: { skill: string }) => {
           <Icon style={{ color: color }} />
         </div>
         <div className="flex flex-col">
-          <span className="text-sm font-bold text-white tracking-wide uppercase group-hover:text-red-500 transition-colors">
+          <span className="text-sm font-bold text-white tracking-wide uppercase group-hover:text-red-400 transition-colors">
             {skill}
           </span>
-          <span className="text-[10px] text-slate-500 font-medium uppercase tracking-tighter">
+          <span className="text-[10px] text-slate-400 font-medium uppercase tracking-tighter">
             Technology
           </span>
         </div>
