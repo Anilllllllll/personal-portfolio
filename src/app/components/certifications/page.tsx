@@ -13,7 +13,7 @@ function Certifications() {
     gsap.registerPlugin(ScrollTrigger);
 
     // Only animate cards that will scroll into view
-    gsap.utils.toArray(".cert-card").forEach((card: Element) => {
+    (gsap.utils.toArray(".cert-card") as Element[]).forEach((card: Element) => {
       gsap.from(card, {
         opacity: 0,
         y: 50,

@@ -11,19 +11,21 @@ function Achievements() {
     gsap.registerPlugin(ScrollTrigger);
 
     // Only animate cards that will scroll into view
-    gsap.utils.toArray(".achievement-card").forEach((card: Element) => {
-      gsap.from(card, {
-        opacity: 0,
-        y: 50,
-        duration: 0.8,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: card,
-          start: "top 80%",
-          toggleActions: "play none none none",
-        },
-      });
-    });
+    (gsap.utils.toArray(".achievement-card") as Element[]).forEach(
+      (card: Element) => {
+        gsap.from(card, {
+          opacity: 0,
+          y: 50,
+          duration: 0.8,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: card,
+            start: "top 80%",
+            toggleActions: "play none none none",
+          },
+        });
+      },
+    );
   }, []);
 
   return (
