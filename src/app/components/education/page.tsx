@@ -60,6 +60,16 @@ function Education() {
                           <School className="w-4 h-4 text-red-900" />
                           {education.institution}
                         </div>
+                        <div className="mt-4 pt-4 border-t border-white/10">
+                          {education.details.map((detail, idx) => (
+                            <p
+                              key={idx}
+                              className="text-slate-300 text-sm leading-relaxed"
+                            >
+                              {detail}
+                            </p>
+                          ))}
+                        </div>
                       </div>
                     </div>
 

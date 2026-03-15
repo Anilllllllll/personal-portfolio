@@ -4,30 +4,20 @@ export const educations = [
     title: "Bachelor's in Information Technology",
     duration: "2023 - 2027",
     institution: "Lovely Professional University",
-    details: [
-      "CGPA: 8.0/10.0",
-      "Specialization in Web Development & Full Stack Engineering",
-      "Relevant Coursework: Data Structures, Web Technologies, Database Management, Software Engineering",
-    ],
+    details: ["CGPA: 8.0"],
   },
   {
     id: 2,
     title: "Senior Secondary (XII)",
     duration: "2021 - 2022",
     institution: "Kendriya Vidyalaya",
-    details: [
-      "Percentage: 77%",
-      "Stream: Science (Physics, Chemistry, Mathematics)",
-    ],
+    details: ["Percentage: 77%"],
   },
   {
     id: 3,
     title: "Secondary (X)",
     duration: "2019 - 2020",
     institution: "Kendriya Vidyalaya",
-    details: [
-      "Percentage: 83%",
-      "Achieved excellence in academics and extracurricular activities",
-    ],
+    details: ["Percentage: 83%"],
   },
 ];
