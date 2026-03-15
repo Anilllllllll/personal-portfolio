@@ -13,7 +13,7 @@ function Certifications() {
     gsap.registerPlugin(ScrollTrigger);
 
     // Only animate cards that will scroll into view
-    gsap.utils.toArray(".cert-card").forEach((card: any) => {
+    gsap.utils.toArray(".cert-card").forEach((card: Element) => {
       gsap.from(card, {
         opacity: 0,
         y: 50,
@@ -29,7 +29,10 @@ function Certifications() {
   }, []);
 
   return (
-    <div id="certifications" className="relative z-50 py-24 lg:py-48 overflow-hidden">
+    <div
+      id="certifications"
+      className="relative z-50 py-24 lg:py-48 overflow-hidden"
+    >
       {/* Decorative Background Blur */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-red-600/10 blur-[120px] rounded-full pointer-events-none" />
 
@@ -59,62 +62,68 @@ function Certifications() {
         <div className="certifications-container grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {displayedCertifications && displayedCertifications.length > 0 ? (
             displayedCertifications.map((cert) => (
-              <SectionReveal key={cert.id} direction="up" delay={cert.id * 0.05}>
+              <SectionReveal
+                key={cert.id}
+                direction="up"
+                delay={cert.id * 0.05}
+              >
                 <div className="cert-card group relative p-8 rounded-3xl border border-white/5 bg-white/[0.02] backdrop-blur-3xl hover:border-red-500/50 hover:bg-white/[0.05] transition-all duration-500 shadow-xl overflow-hidden opacity-100">
-                {/* Header */}
-                <div className="relative z-10 mb-6">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-500">
-                        <Trophy className="text-red-500 w-6 h-6" />
+                  {/* Header */}
+                  <div className="relative z-10 mb-6">
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="flex items-start gap-4">
+                        <div className="w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-500">
+                          <Trophy className="text-red-500 w-6 h-6" />
+                        </div>
+                        <div>
+                          <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-red-500 transition-colors">
+                            {cert.title}
+                          </h3>
+                          <p className="text-sm text-red-500 font-semibold mt-1">
+                            {cert.issuer}
+                          </p>
+                        </div>
                       </div>
-                      <div>
-                        <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-red-500 transition-colors">
-                          {cert.title}
-                        </h3>
-                        <p className="text-sm text-red-500 font-semibold mt-1">
-                          {cert.issuer}
-                        </p>
-                      </div>
-                    </div>
-                    <span className="text-sm font-bold text-slate-500 bg-white/5 px-3 py-1 rounded-full">
-                      {cert.year}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Skills */}
-                <div className="relative z-10 mb-6">
-                  <div className="flex flex-wrap gap-2">
-                    {cert.skills.map((skill, idx) => (
-                      <span
-                        key={idx}
-                        className="text-xs font-semibold text-red-500 bg-red-500/10 px-3 py-1 rounded-full border border-red-500/20 group-hover:border-red-500/50 transition-colors"
-                      >
-                        {skill}
+                      <span className="text-sm font-bold text-slate-500 bg-white/5 px-3 py-1 rounded-full">
+                        {cert.year}
                       </span>
-                    ))}
+                    </div>
                   </div>
+
+                  {/* Skills */}
+                  <div className="relative z-10 mb-6">
+                    <div className="flex flex-wrap gap-2">
+                      {cert.skills.map((skill, idx) => (
+                        <span
+                          key={idx}
+                          className="text-xs font-semibold text-red-500 bg-red-500/10 px-3 py-1 rounded-full border border-red-500/20 group-hover:border-red-500/50 transition-colors"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Credential Link */}
+                  <a
+                    href={cert.credentialUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative z-10 inline-flex items-center gap-2 text-red-500 font-semibold text-sm hover:text-red-400 transition-colors group/link"
+                  >
+                    View Credential
+                    <ExternalLink className="w-4 h-4 group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
+                  </a>
+
+                  {/* Decorative Glow */}
+                  <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-red-600/10 via-transparent to-red-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                 </div>
-
-                {/* Credential Link */}
-                <a
-                  href={cert.credentialUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="relative z-10 inline-flex items-center gap-2 text-red-500 font-semibold text-sm hover:text-red-400 transition-colors group/link"
-                >
-                  View Credential
-                  <ExternalLink className="w-4 h-4 group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
-                </a>
-
-                {/* Decorative Glow */}
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-red-600/10 via-transparent to-red-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-              </div>
-            </SectionReveal>
+              </SectionReveal>
             ))
           ) : (
-            <div className="text-center text-slate-400 col-span-full">Loading certifications...</div>
+            <div className="text-center text-slate-400 col-span-full">
+              Loading certifications...
+            </div>
           )}
         </div>
       </div>

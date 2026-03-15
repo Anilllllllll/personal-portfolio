@@ -6,7 +6,7 @@ export const achievementsData = [
     description:
       "Practiced consistently on LeetCode, CodeChef, GeeksforGeeks, Code360 and various coding platforms, achieving strong problem-solving accuracy",
     icon: "💻",
-    proofLink: "https://drive.google.com/",
+    proofLink: "https://leetcode.com/u/anill1/",
   },
   {
     id: 2,
@@ -24,6 +24,7 @@ export const achievementsData = [
     description:
       "Secured runner-up position in Inter-College Web Development Hackathon with an innovative real-time collaborative platform",
     icon: "🥈",
-    proofLink: "https://drive.google.com/file/d/1KndbP_uDdEVgp_K-0NMW1pUp_bc8HlN-/view?usp=sharing",
+    proofLink:
+      "https://drive.google.com/file/d/1KndbP_uDdEVgp_K-0NMW1pUp_bc8HlN-/view?usp=sharing",
   },
 ];

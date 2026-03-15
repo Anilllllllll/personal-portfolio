@@ -4,8 +4,6 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { SplitText } from "gsap/dist/SplitText";
-import Image from "next/image";
-import Tilt from "react-parallax-tilt";
 import { User, Sparkles, Download } from "lucide-react";
 import Link from "next/link";
 

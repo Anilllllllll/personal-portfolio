@@ -1,0 +1,6 @@
+.git
+.gitignore
+README.md
+.husky
+lint-staged.config.js
+.eslintrc.json
