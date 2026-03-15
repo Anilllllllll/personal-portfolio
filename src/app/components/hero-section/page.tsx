@@ -16,6 +16,8 @@ const HeroSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const designationRef = useRef<HTMLElement>(null);
   const codeCardRef = useRef<HTMLDivElement>(null);
+  const blob1Ref = useRef<HTMLDivElement>(null);
+  const blob2Ref = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
@@ -96,6 +98,41 @@ const HeroSection = () => {
         stagger: 0.2,
         ease: "sine.inOut",
       });
+
+      // Parallax effect on background blobs
+      if (blob1Ref.current && blob2Ref.current) {
+        const xToBlob1 = gsap.quickTo(blob1Ref.current, "x", {
+          duration: 1,
+          ease: "power3",
+        });
+        const yToBlob1 = gsap.quickTo(blob1Ref.current, "y", {
+          duration: 1,
+          ease: "power3",
+        });
+        const xToBlob2 = gsap.quickTo(blob2Ref.current, "x", {
+          duration: 1.5,
+          ease: "power3",
+        });
+        const yToBlob2 = gsap.quickTo(blob2Ref.current, "y", {
+          duration: 1.5,
+          ease: "power3",
+        });
+
+        const handleMouseMove = (e: MouseEvent) => {
+          const { clientX, clientY } = e;
+          // Calculate movement based on cursor position relative to window center
+          const xOffset = (clientX / window.innerWidth - 0.5) * 60;
+          const yOffset = (clientY / window.innerHeight - 0.5) * 60;
+
+          xToBlob1(xOffset);
+          yToBlob1(yOffset);
+          xToBlob2(-xOffset * 1.2);
+          yToBlob2(-yOffset * 1.2);
+        };
+
+        window.addEventListener("mousemove", handleMouseMove);
+        return () => window.removeEventListener("mousemove", handleMouseMove);
+      }
     },
     { scope: containerRef },
   );
@@ -106,8 +143,14 @@ const HeroSection = () => {
       className="relative min-h-[90vh] flex flex-col items-center justify-center py-12 lg:py-24 overflow-hidden"
     >
       {/* Background Ambient Glows */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-red-600/10 blur-[120px] rounded-full animate-pulse" />
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-red-900/10 blur-[150px] rounded-full animate-pulse delay-700" />
+      <div
+        ref={blob1Ref}
+        className="absolute top-20 left-10 w-72 h-72 bg-red-600/10 blur-[120px] rounded-full animate-pulse z-0 pointer-events-none"
+      />
+      <div
+        ref={blob2Ref}
+        className="absolute bottom-20 right-10 w-96 h-96 bg-red-900/10 blur-[150px] rounded-full animate-pulse delay-700 z-0 pointer-events-none"
+      />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center px-4 md:px-8 relative z-10 w-full max-w-7xl mx-auto">
         {/* Left Side: Content */}
@@ -243,7 +286,10 @@ const HeroSection = () => {
                     <span className="text-slate-600 italic">03</span>
                     <p className="ml-4">
                       <span className="text-slate-200">focus:</span>{" "}
-                      <span className="text-red-300">'Full Stack Development'</span>,
+                      <span className="text-red-300">
+                        'Full Stack Development'
+                      </span>
+                      ,
                     </p>
                   </div>
                   <div className="flex gap-4">

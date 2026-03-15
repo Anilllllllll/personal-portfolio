@@ -3,13 +3,39 @@ import { projectsData } from "@/../utils/Data/projects-data";
 import { MoveUpRight } from "lucide-react";
 import Link from "next/link";
 import ProjectCard from "./project-card";
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
 
 const Projects = () => {
   const displayedProjects = projectsData.slice(0, 3);
+  const containerRef = useRef<HTMLElement>(null);
+
+  useGSAP(
+    () => {
+      gsap.registerPlugin(ScrollTrigger);
+
+      gsap.from(".project-card-wrapper", {
+        y: 100,
+        opacity: 0,
+        duration: 1.2,
+        stagger: 0.2,
+        ease: "power4.out",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 70%",
+        },
+      });
+    },
+    { scope: containerRef },
+  );
+
   return (
     <section
       id="projects"
-      className="relative z-50 py-16 lg:py-32  overflow-hidden"
+      ref={containerRef}
+      className="relative z-50 py-16 lg:py-32 overflow-hidden"
     >
       {/* Background Decorative Element */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-red-600/5 blur-[150px] rounded-full pointer-events-none" />
@@ -44,7 +70,9 @@ const Projects = () => {
 
           <div className="grid gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full">
             {displayedProjects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
+              <div key={project.id} className="project-card-wrapper">
+                <ProjectCard project={project} />
+              </div>
             ))}
           </div>
 

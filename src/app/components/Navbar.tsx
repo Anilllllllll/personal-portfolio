@@ -1,10 +1,10 @@
 "use client";
-import img from "@/../public/logo.png";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link as ScrollLink } from "react-scroll";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 const navItems = [
   { label: "About", to: "about" },
@@ -20,6 +20,16 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
+  const navRef = useRef<HTMLElement>(null);
+
+  useGSAP(() => {
+    gsap.from(navRef.current, {
+      y: -100,
+      opacity: 0,
+      duration: 1.2,
+      ease: "power4.out",
+    });
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -78,6 +88,7 @@ const Navbar = () => {
 
   return (
     <nav
+      ref={navRef}
       className={`sticky top-0 z-[9999] transition-all duration-500 ${
         isScrolled
           ? "bg-[#050505]/80 backdrop-blur-xl border-b border-white/10 py-2"
@@ -85,24 +96,11 @@ const Navbar = () => {
       }`}
     >
       <div className="container flex items-center justify-between mx-auto px-4 lg:px-8">
-        <Link
-          href="/"
-          className="transition-transform duration-300 hover:scale-105"
-        >
-          <Image
-            src={img}
-            alt="Abdul Basit"
-            width={isScrolled ? 50 : 60}
-            height={isScrolled ? 50 : 60}
-            className="transition-all duration-500"
-          />
-        </Link>
-
+        <div className="w-10"></div> {/* Spacer for layout balance */}
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-8">
           {navItems.map((item) => renderLink(item))}
         </div>
-
         {/* Mobile Menu Button */}
         <div className="md:hidden">
           <button

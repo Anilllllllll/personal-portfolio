@@ -4,7 +4,10 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { SplitText } from "gsap/dist/SplitText";
+import Image from "next/image";
+import Tilt from "react-parallax-tilt";
 import { User, Sparkles, Download } from "lucide-react";
+import Link from "next/link";
 
 function About() {
   useGSAP(() => {
@@ -28,6 +31,22 @@ function About() {
         toggleActions: "play none none none",
       },
     });
+
+    gsap.fromTo(
+      ".about-image-card",
+      { opacity: 0, scale: 0.9, x: 50 },
+      {
+        opacity: 1,
+        scale: 1,
+        x: 0,
+        duration: 1.2,
+        ease: "power4.out",
+        scrollTrigger: {
+          trigger: ".about-image-card",
+          start: "top 80%",
+        },
+      },
+    );
   }, []);
 
   return (
@@ -37,42 +56,40 @@ function About() {
       <div className="absolute bottom-1/4 -right-20 w-[400px] h-[400px] bg-red-900/10 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className="flex flex-col gap-12">
-          {/* Header */}
-          <div className="flex flex-col gap-4">
-            <div className="flex items-center gap-3 text-red-500 mb-2">
-              <div className="w-10 h-10 rounded-xl bg-red-500/10 flex items-center justify-center">
-                <User className="w-5 h-5 shadow-[0_0_15px_rgba(239,68,68,0.5)]" />
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
+          {/* Content side taking full width or centered */}
+          <div className="lg:col-span-8 lg:col-start-3 flex flex-col gap-8">
+            <div className="flex flex-col gap-4">
+              <div className="flex items-center gap-3 text-red-500 mb-2">
+                <div className="w-10 h-10 rounded-xl bg-red-500/10 flex items-center justify-center">
+                  <User className="w-5 h-5 shadow-[0_0_15px_rgba(239,68,68,0.5)]" />
+                </div>
+                <span className="text-sm font-bold uppercase tracking-[0.3em]">
+                  Discovery
+                </span>
               </div>
-              <span className="text-sm font-bold uppercase tracking-[0.3em]">
-                Get to know me
-              </span>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-black text-white leading-tight">
-              About{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-800">
-                Anil Kumar
-              </span>
-            </h2>
-          </div>
-
-          {/* Content Card */}
-          <div className="relative group p-8 lg:p-12 rounded-3xl border border-white/5 bg-white/[0.02] backdrop-blur-3xl overflow-hidden shadow-2xl max-w-4xl">
-            <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:rotate-12 transition-transform duration-700">
-              <Sparkles className="w-24 h-24 text-red-500" />
+              <h2 className="text-4xl md:text-5xl font-black text-white leading-tight">
+                About{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-800">
+                  Me
+                </span>
+              </h2>
             </div>
 
-            <div className="about-description text-slate-300 text-lg lg:text-xl leading-relaxed text-justify space-y-4 font-medium">
-              {personalData.description}
+            <div className="relative group p-8 lg:p-10 rounded-3xl border border-white/5 bg-white/[0.02] backdrop-blur-3xl overflow-hidden shadow-2xl">
+              <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:rotate-12 transition-transform duration-700">
+                <Sparkles className="w-24 h-24 text-red-500" />
+              </div>
+
+              <div className="about-description text-slate-300 text-lg lg:text-xl leading-relaxed text-justify space-y-4 font-medium italic">
+                {personalData.description}
+              </div>
+
+              {/* Decorative Accent */}
+              <div className="absolute  w-1 h-20 bg-gradient-to-b from-red-600 to-transparent left-0 top-10 rounded-full" />
             </div>
 
-            {/* Decorative Accent */}
-            <div className="absolute w-1 h-20 bg-gradient-to-b from-red-600 to-transparent left-0 top-10 rounded-full" />
-          </div>
-
-          {/* Stats and Resume Button */}
-          <div className="flex flex-col lg:flex-row gap-8 items-start lg:items-center">
-            <div className="flex flex-wrap gap-8 items-center">
+            <div className="flex flex-wrap gap-8 items-center mt-4">
               <div className="flex flex-col">
                 <span className="text-3xl font-black text-white">2+</span>
                 <span className="text-xs text-slate-500 uppercase tracking-widest font-bold">
@@ -83,28 +100,28 @@ function About() {
               <div className="flex flex-col">
                 <span className="text-3xl font-black text-white">20+</span>
                 <span className="text-xs text-slate-500 uppercase tracking-widest font-bold">
-                  Projects Completed
+                  Global Projects
                 </span>
               </div>
               <div className="w-[1px] h-10 bg-white/10" />
               <div className="flex flex-col">
                 <span className="text-3xl font-black text-white">10+</span>
                 <span className="text-xs text-slate-500 uppercase tracking-widest font-bold">
-                  Tech Skills
+                  Tech Mastered
                 </span>
               </div>
             </div>
 
-            {/* Resume Download Button */}
-            <a
-              href={personalData.resume}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-2xl border-2 border-red-500 bg-red-500/10 hover:bg-red-500/20 text-red-500 font-bold uppercase tracking-wider transition-all duration-300 shadow-xl hover:shadow-[0_0_30px_rgba(239,68,68,0.3)] ml-auto"
-            >
-              <Download className="w-5 h-5 group-hover:scale-110 transition-transform" />
-              Download Resume
-            </a>
+            <div className="mt-8">
+              <Link
+                href={personalData.resume}
+                target="_blank"
+                className="group w-fit px-8 py-4 rounded-2xl border border-white/10 bg-white/5 text-white font-bold uppercase tracking-wider transition-all hover:bg-white/10 hover:border-red-500/50 flex items-center gap-2 shadow-xl hover:shadow-red-500/10"
+              >
+                Download Resume{" "}
+                <Download className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
+              </Link>
+            </div>
           </div>
         </div>
       </div>
