@@ -86,6 +86,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                 height={450}
                 alt={project.name}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                unoptimized={true}
               />
             ) : (
               <div className="w-full h-full bg-slate-900 flex items-center justify-center">

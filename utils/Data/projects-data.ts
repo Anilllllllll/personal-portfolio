@@ -84,8 +84,8 @@ export const projectsData = [
       "Firebase",
     ],
     role: "Full-Stack Developer",
-    code: "https://github.com/Anilllllllll/file-management-system",
-    demo: "http://naimur-reza.vercel.app/",
+    code: "https://github.com/Anilllllllll/wool-monitoring--application",
+    demo: "https://task-management-app-demo.vercel.app/",
     date: "2024-01-20",
     images: [
       "/projects/quixy/home.png",
@@ -122,9 +122,7 @@ export const projectsData = [
     code: "https://github.com/Anilllllllll/ecommerce-platform",
     demo: "https://ecommerce-platform-demo.vercel.app/",
     date: "2025-08-20",
-    images: [
-      "/projects/ecommerce/home.png",
-    ],
+    images: ["/projects/ecommerce/home.png"],
     videos: [""],
     highlights: [
       "Implemented secure payment gateway with Stripe integration",
@@ -155,9 +153,7 @@ export const projectsData = [
     code: "https://github.com/Anilllllllll/task-management-app",
     demo: "https://task-management-app-demo.vercel.app/",
     date: "2025-07-15",
-    images: [
-      "/projects/task-manager/home.png",
-    ],
+    images: ["/projects/task-manager/home.png"],
     videos: [""],
     highlights: [
       "Real-time collaboration with WebSocket integration",
@@ -188,9 +184,7 @@ export const projectsData = [
     code: "https://github.com/Anilllllllll/blog-platform",
     demo: "https://blog-platform-demo.vercel.app/",
     date: "2025-06-10",
-    images: [
-      "/projects/blog/home.png",
-    ],
+    images: ["/projects/blog/home.png"],
     videos: [""],
     highlights: [
       "Built rich text editor with markdown support",

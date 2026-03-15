@@ -55,6 +55,7 @@ const ProjectDetails = async ({ params }: Props) => {
               alt={project.name}
               fill
               className="object-cover opacity-20 blur-sm scale-110"
+              unoptimized={true}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent" />
           </div>
@@ -68,6 +69,7 @@ const ProjectDetails = async ({ params }: Props) => {
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                 priority
+                unoptimized={true}
               />
             </div>
 
@@ -171,6 +173,7 @@ const ProjectDetails = async ({ params }: Props) => {
                             alt={`${project.name} Screenshot ${index + 1}`}
                             fill
                             className="object-cover transition-transform duration-700 group-hover:scale-110 shadow-2xl opacity-80 group-hover:opacity-100"
+                            unoptimized={true}
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent opacity-60" />
                         </div>
