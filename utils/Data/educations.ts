@@ -5,7 +5,7 @@ export const educations = [
     duration: "2023 - 2027",
     institution: "Lovely Professional University",
     details: [
-      "CGPA: 3.8/4.0 (or your CGPA)",
+      "CGPA: 8.0/10.0",
       "Specialization in Web Development & Full Stack Engineering",
       "Relevant Coursework: Data Structures, Web Technologies, Database Management, Software Engineering",
     ],
@@ -16,7 +16,7 @@ export const educations = [
     duration: "2021 - 2022",
     institution: "Kendriya Vidyalaya",
     details: [
-      "Percentage: 85% (or your percentage)",
+      "Percentage: 77%",
       "Stream: Science (Physics, Chemistry, Mathematics)",
     ],
   },
@@ -26,7 +26,7 @@ export const educations = [
     duration: "2019 - 2020",
     institution: "Kendriya Vidyalaya",
     details: [
-      "CGPA: 4.0/4.0 (or your CGPA)",
+      "Percentage: 83%",
       "Achieved excellence in academics and extracurricular activities",
     ],
   },
