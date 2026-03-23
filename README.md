@@ -6,11 +6,12 @@ Welcome to my **developer portfolio** built with **Next.js 15**, **Tailwind CSS*
 
 ## 📸 Screenshot
 
-## ![Homepage of Anil Kumar's Portfolio](public/Website-overview.png)
+<img width="1919" height="1107" alt="image" src="https://github.com/user-attachments/assets/9d19c16a-a5c4-466b-a0f9-44d3e7ec3e4e" />
+
 
 ## 🚀 Live Demo
 
-🔗 [Visit Portfolio Website](https://your-portfolio-url.vercel.app/)
+🔗[ [Visit Portfolio Website](https://your-portfolio-url.vercel.app/)](https://personal-portfolio-wr78.vercel.app/)
 
 ---
 
@@ -92,7 +93,7 @@ NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=
 
 ## 📦 Deployment
 
-deployed [here](https://abdul-basit-portfolio-website.vercel.app/)
+deployed [[here](https://abdul-basit-portfolio-website.vercel.app/)](https://personal-portfolio-wr78.vercel.app/)
 
 ---
 
@@ -101,13 +102,3 @@ deployed [here](https://abdul-basit-portfolio-website.vercel.app/)
 This project is open-source and available under the [MIT License](LICENSE).
 
 ---
-
-## 📬 Contact Me
-
-Got a project in mind or just want to say hi?
-
-📧 [rajaabdulbasit005@gmail.com](mailto:rajaabdulbasit005@gmail.com)
-
-```
-
-```
