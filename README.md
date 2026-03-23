@@ -93,7 +93,7 @@ NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=
 
 ## 📦 Deployment
 
-deployed [[here](https://abdul-basit-portfolio-website.vercel.app/)](https://personal-portfolio-wr78.vercel.app/)
+deployed [(https://abdul-basit-portfolio-website.vercel.app/)](https://personal-portfolio-wr78.vercel.app/)
 
 ---
 
