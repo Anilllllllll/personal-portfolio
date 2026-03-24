@@ -173,7 +173,7 @@ export const projectsData = [
     id: 6,
     name: "Dragon Game",
     description:
-      "A modern blogging platform with rich content creation, SEO optimization, and community engagement features. Enables writers to publish articles, manage drafts, track analytics, and engage with readers through comments and social sharing.",
+      "An industry-level, deploy-ready endless runner game built using pure HTML, CSS, and JavaScript",
     tools: [
       "Next.js",
       "React",
